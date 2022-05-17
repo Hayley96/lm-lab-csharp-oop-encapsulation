@@ -3,8 +3,10 @@ namespace Encapsulation.Models
 {
     public class WeatherReporter
     {
-        public string Location;
-        public double Temperature;
+        private readonly string Location;
+        private readonly double Temperature;
+        private const double FARENHEITCONSTFRACTION = 9.0 / 5.0;
+        private const double FARENHEITCONSTINT = 32;
 
         public WeatherReporter(string location, double temperature)
         {
@@ -12,27 +14,27 @@ namespace Encapsulation.Models
             Temperature = temperature;
         }
 
-        public string Print()
+        public string DisplayFarenheit()
         {
-            double newTemp = (9.0 / 5.0) * Temperature + 32;
-            return $"I am in {Location} and it is {Check1()}. {Check2()}. The temperature in Fahrenheit is {newTemp}.";
+            double newFarenheit = FARENHEITCONSTFRACTION * Temperature + FARENHEITCONSTINT;
+            return $"I am in {Location} and it is {CheckLocation()}. {CheckTemperature()}. The temperature in Fahrenheit is {newFarenheit}.";
         }
 
-        public string Check1()
+        private string CheckLocation()
         {
-            if (Location == "London")
+            if (Location.Equals("London"))
             {
 
                 return "🌦";
 
             }
-            else if (Location == "California")
+            else if (Location.Equals("California"))
             {
 
                 return "🌅";
 
             }
-            else if (Location == "Cape Town")
+            else if (Location.Equals("Cape Town"))
             {
 
                 return "🌤";
@@ -41,7 +43,7 @@ namespace Encapsulation.Models
             return "🔆";
         }
 
-        public string Check2()
+        private string CheckTemperature()
         {
             if (Temperature > 30)
             {
