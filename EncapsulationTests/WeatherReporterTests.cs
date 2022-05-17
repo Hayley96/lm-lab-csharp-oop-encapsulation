@@ -40,5 +40,19 @@ namespace EncapsulationTests
             WeatherReporter wr = new("London", 5);
             wr.DisplayFarenheit().Should().Contain("cold");
         }
+
+        [Test]
+        public void CalculateFarenheit_Should_Return_104_When_The_Value_40_Is_Assigned_To_Temperature_Field()
+        {
+            WeatherReporter wr = new("London", 40);
+            wr.CalculateFarenheit().Should().Be(104);
+        }
+
+        [Test]
+        public void CalculateFarenheit_Should_Return_59_When_The_Value_15_Is_Assigned_To_Temperature_Field()
+        {
+            WeatherReporter wr = new("London", 15);
+            wr.CalculateFarenheit().Should().Be(59);
+        }
     }
 }

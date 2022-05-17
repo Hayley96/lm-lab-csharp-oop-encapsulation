@@ -7,6 +7,8 @@ namespace Encapsulation.Models
         private readonly double Temperature;
         private const double FARENHEITCONSTFRACTION = 9.0 / 5.0;
         private const double FARENHEITCONSTINT = 32;
+        private double Farenheit = 0;
+
 
         public WeatherReporter(string location, double temperature)
         {
@@ -14,10 +16,14 @@ namespace Encapsulation.Models
             Temperature = temperature;
         }
 
+        public double CalculateFarenheit()
+        {
+            return Farenheit = FARENHEITCONSTFRACTION * Temperature + FARENHEITCONSTINT;
+        }
+
         public string DisplayFarenheit()
         {
-            double newFarenheit = FARENHEITCONSTFRACTION * Temperature + FARENHEITCONSTINT;
-            return $"I am in {Location} and it is {CheckLocation()}. {CheckTemperature()}. The temperature in Fahrenheit is {newFarenheit}.";
+            return $"I am in {Location} and it is {CheckLocation()}. {CheckTemperature()}. The temperature in Fahrenheit is {CalculateFarenheit()}.";
         }
 
         private string CheckLocation()
