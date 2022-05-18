@@ -29,40 +29,25 @@ namespace Encapsulation.Models
         private string CheckLocation()
         {
             if (Location.Equals("London"))
-            {
-
                 return "🌦";
 
-            }
-            else if (Location.Equals("California"))
-            {
-
+            if (Location.Equals("California"))
                 return "🌅";
 
-            }
-            else if (Location.Equals("Cape Town"))
-            {
-
+            if (Location.Equals("Cape Town"))
                 return "🌤";
 
-            }
             return "🔆";
         }
 
         private string CheckTemperature()
         {
             if (Temperature > 30)
-            {
-
                 return "It's too hot 🥵!";
 
-            }
-            else if (Temperature < 10)
-            {
-
+            if (Temperature < 10)
                 return "It's too cold 🥶!";
 
-            }
             return "Ahhh...it's just right 😊!";
         }
 
